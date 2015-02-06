@@ -1,6 +1,8 @@
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,7 @@ import java.util.List;
  * This class contains the board data represented as a two dimensional
  * array of Cell. Each Cell can contain a single char (e.g. X or O).
  */
-final class BoardModel implements TableModel, RemoteStuff
+final class BoardModel implements TableModel
 {
   private final Cell boardCells[][];
   private final List<TableModelListener> listeners = new ArrayList<TableModelListener>();
