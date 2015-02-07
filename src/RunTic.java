@@ -4,17 +4,17 @@ import java.rmi.RemoteException;
 
 public class RunTic {
 	private static Registry reg;
-	private static boolean isPlayerOne;
-
+	private static int playerID;
+	
 	public static void init_registry() {
 		try {
 			reg = LocateRegistry.createRegistry(Settings.REGISTRY_PORT);
-			isPlayerOne = true;
+			playerID = 0;
 			System.out.println("Registry setup");
 		} catch (RemoteException err) {
 			try {
 				reg = LocateRegistry.getRegistry(Settings.REGISTRY_PORT);
-				isPlayerOne = false;
+				playerID = 1;
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}
@@ -25,7 +25,7 @@ public class RunTic {
 	public static void main(String[] args) {
 		init_registry();
 		try {
-			new RemoteTicTacToeImpl(reg, isPlayerOne);
+			new RemoteTicTacToeImpl(reg, playerID);
 		} catch (RemoteException | NotBoundException e) {
 			e.printStackTrace();
 		}

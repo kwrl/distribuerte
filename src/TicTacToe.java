@@ -38,10 +38,10 @@ import javax.swing.tree.DefaultTreeCellEditor.EditorContainer;
 public class TicTacToe extends JFrame implements ListSelectionListener {
 	private static final int BOARD_SIZE = 15;
 	protected BoardModel boardModel;
-	private final JTable board;
+	protected final JTable board;
 	private final JLabel statusLabel = new JLabel();
 	protected final char playerMarks[] = { 'X', 'O' };
-	private int currentPlayer = 0; // Player to set the next mark.
+	protected int currentPlayer = 0; // Player to set the next mark.
 
 	public TicTacToe() {
 		super("TDT4190: Tic Tac Toe");
